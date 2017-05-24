@@ -7,7 +7,7 @@ This module is for easy prototyping of how typical webgl modules like mapbox gl 
 
 The other mode is for bulk output and works alot like my current attempts in go. 
 
-** The main goal of this module is to hack out something that can accurately debug and interpret how geometries are drawn in mapbox-gl. Its still an afternoon day project so far.**
+**The main goal of this module is to hack out something that can accurately debug and interpret how geometries are drawn in mapbox-gl. Its still an afternoon day project so far.**
 
 # Example Line 
 
