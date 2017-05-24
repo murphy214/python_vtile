@@ -376,6 +376,7 @@ if __name__ == '__main__':
 
 
 def make_test_line(coords):
+  os.system("freeport 5000")
   make_html_line()
   os.system("open -a Safari index.html")
   make_line_test(coords)
@@ -383,6 +384,7 @@ def make_test_line(coords):
 
 
 def make_test_polygon(coords):
+  os.system("freeport 5000")
   make_html_polygon()
   os.system("open -a Safari index.html")
   make_polygon_test(coords)
