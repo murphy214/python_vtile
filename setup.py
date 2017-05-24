@@ -8,7 +8,7 @@ setup(name='python_vtile',
       author='Bennett Murphy',
       author_email='murphy214@live.marshall.edu',
       url='https://github.com/murphy214/python_vtile',
-      packages=['python_vtile'],
+      packages=['python_vtile','vect'],
 
 
      )
