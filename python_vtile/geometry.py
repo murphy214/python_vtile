@@ -34,7 +34,7 @@ def linerow(row,f):
 
 # coordlines expects the coordinates to be long,lat syntax
 # coord lines is the list of line coordinates
-def make_tile_lines(x,y,z,coordss,write=False):
+def make_tile_lines(coordss,write=False):
 	tile = vector_tile.Tile()
 	tile_feature = vector_tile.Tile().Feature()
 	layer = tile.layers.add()
@@ -54,7 +54,7 @@ def make_tile_lines(x,y,z,coordss,write=False):
 		count = 0
 		for row in coords:
 			addrow = [row[0]-oldrow[0],row[1]-oldrow[1]]
-			print addrow
+			#print addrow
 			if count == 0:
 				count = 1
 				f.geometry.append(moveto(1))
@@ -71,12 +71,16 @@ def make_tile_lines(x,y,z,coordss,write=False):
 
 			oldrow = row
 
-	return tile.SerializeToString()
+	if write != False:
+		with open(write,'wb') as f:
+			f.write(tile.SerializeToString())
+	else:
+		return tile.SerializeToString()
 
 
 # coordlines expects the coordinates to be long,lat syntax
 # coord lines is the list of line coordinates
-def make_tile_polygons(x,y,z,coordss,write=False):
+def make_tile_polygons(coordss,write=False):
 	tile = vector_tile.Tile()
 	tile_feature = vector_tile.Tile().Feature()
 	layer = tile.layers.add()
@@ -88,8 +92,10 @@ def make_tile_polygons(x,y,z,coordss,write=False):
 	f.type = 3
 	f.id = 10
 
+
 	oldrow = [0,0]
 	for coords in coordss:
+		#coords = coords[0]
 		#print coords
 		linetocount = len(coords) - 2
 		coords = coords[:len(coords) - 1]
@@ -113,7 +119,12 @@ def make_tile_polygons(x,y,z,coordss,write=False):
 
 			oldrow = row
 		f.geometry.append(encode_cmd_length(7,1))
-	return tile.SerializeToString()
+	print tile
+	if write != False:
+		with open(write,'wb') as f:
+			f.write(tile.SerializeToString())
+	else:
+		return tile.SerializeToString()
 
 
 

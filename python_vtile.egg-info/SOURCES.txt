@@ -1,5 +1,7 @@
 setup.py
 python_vtile/__init__.py
+python_vtile/bulk_lines.py
+python_vtile/coords.py
 python_vtile/geometry.py
 python_vtile/single_tile_test.py
 python_vtile.egg-info/PKG-INFO
